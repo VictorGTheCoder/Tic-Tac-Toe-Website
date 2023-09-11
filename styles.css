@@ -1,0 +1,133 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f4f4f4;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    width: auto;
+    max-width: 700px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+h1, h2 {
+    text-align: center;
+    color: #333;
+}
+
+.game-container {
+    margin: 20px 0;
+}
+
+.board {
+    display: grid;
+    grid-template-columns: repeat(3, 180px);
+    justify-content: center;
+}
+
+.mini-board {
+    display: grid;
+    grid-template-columns: repeat(3, 50px);
+    border: 5px solid #ddd;
+    justify-content: center;
+    border-radius: 5px;
+    margin: 10px;
+    transition: transform 0.3s;
+}
+
+.mini-board:hover {
+    transform: scale(1.2);
+    z-index: 1;
+}
+
+
+@keyframes pulsate {
+    0% {
+        border-color: #FFEB3B;  /* Light Yellow */
+    }
+    50% {
+        border-color: #FFC914;  /* Very Light Yellow */
+    }
+    100% {
+        border-color: #FFEE58;  /* Soft Yellow */
+    }
+}
+
+.mini-board[data-active="true"] {
+    border: 5px solid #FFEB3B;
+    box-shadow: 0 0 15px rgba(255, 235, 59, 0.7);
+    animation: pulsate 1s infinite; 
+}
+
+.cell {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: bold;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.cell:hover {
+    background-color: #CCCCCC;
+}
+
+.cell.x {
+    color: red;
+}
+
+.cell.o {
+    color: blue;
+}
+
+.instructions {
+    margin-top: 20px;
+    font-size: 16px;
+    color: #555;
+}
+
+.mini-board.won-by-x::before,
+.mini-board.won-by-o::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    height: 90%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    animation: appear 0.5s;
+}
+
+.mini-board.won-by-x::before {
+    background-image: url('red-cross.png');
+}
+
+.mini-board.won-by-o::before {
+    background-image: url('blue-circle.png');
+}
+
+/*@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.5);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+}*/
+
