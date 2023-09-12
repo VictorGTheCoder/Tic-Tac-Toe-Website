@@ -1,0 +1,33 @@
+.menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.menu button {
+    margin: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+
+.input-form {
+    display: none;  /* Initially hidden */
+    margin-top: 20px;
+}
+
+#pseudoInput {
+    padding: 10px;
+    font-size: 16px;
+    margin-right: 10px;
+}

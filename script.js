@@ -1,5 +1,17 @@
 const mainBoard = document.querySelector('[data-board]');
 
+const overlay = document.getElementById('gameEndOverlay');
+// Assuming you have a reference to the overlay in a variable called 'overlay'
+function endGame(message) {
+    overlay.textContent = message; // Set the end game message
+    overlay.classList.add('show-overlay'); // Trigger the animation
+}
+
+function hideOverlay() {
+    overlay.classList.remove('show-overlay');
+}
+
+
 // Create the 9 mini-boards
 for (let i = 0; i < 9; i++) {
     const miniBoard = document.createElement('div');
@@ -25,10 +37,7 @@ cells.forEach(cell => {
 });
 
 function handleCellClick(event) {
-    if (activeBoard)
-    {
-        activeBoard.setAttribute('data-active', 'false');
-    }
+
 
     const cell = event.target;
     const miniBoard = cell.parentElement;
@@ -69,13 +78,34 @@ function handleCellClick(event) {
         miniBoard.classList.add(`won-by-${currentPlayer.toLowerCase()}`);
     }
 
+
     // Check for win in the main board
     if (checkWin(mainBoard, currentPlayer)) {
-        alert(`${currentPlayer} Wins!`);
+        endGame(`${currentPlayer} Wins the Game!`);
         location.reload();
         return;
     }
 
+    function checkDraw() {
+        // Check if all cells in the main board are filled
+        const allCellsFilled = Array.from(cells).every(cell => cell.textContent);
+    
+        // If all cells are filled and no player has won on the main board, it's a draw
+        return allCellsFilled && !checkWin(mainBoard, 'X') && !checkWin(mainBoard, 'O');
+    }
+    
+
+    if (checkDraw()) {
+        endGame('It\'s a Draw!');
+        setTimeout(() => {
+            location.reload();
+        }, 3000);  // 3 seconds delay
+        return;
+    }
+    if (activeBoard)
+    {
+        activeBoard.setAttribute('data-active', 'false');
+    }
     // Set the next active board based on the cell that was clicked
     const cellIndex = Array.from(cell.parentElement.children).indexOf(cell);
     if (!miniBoards[cellIndex].getAttribute('data-winner') && !Array.from(miniBoards[cellIndex].children).every(c => c.textContent)) {
@@ -107,3 +137,5 @@ function checkWin(board, player) {
         });
     });
 }
+
+overlay.addEventListener('click', hideOverlay);

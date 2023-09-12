@@ -4,21 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Super Tic Tac Toe</title>
+    <link rel="stylesheet" href="menu.css">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
         <h1>Super Tic Tac Toe</h1>
-        <div class="game-container">
-            <div class="board" data-board>
-                <!-- This will contain 9 smaller boards -->
+        <div id="menu" class="menu">
+            <h2>Welcome to Tic Tac Toe</h2>
+            <button id="playAsGuest">Play as Guest</button>
+            <button id="login">Login</button>
+
+            <div id="guestInputForm" class="input-form">
+                <input type="text" id="pseudoInput" placeholder="Enter your pseudonym">
+                <button id="submitPseudo">Submit</button>
             </div>
         </div>
-        <div class="instructions">
-            <h2>Instructions:</h2>
-            <p>Play the game just like classic Tic Tac Toe, but each move determines which mini-board the next player should play in. Win mini-boards to claim them on the main board. Win the main board by claiming three mini-boards in a row, column, or diagonal.</p>
+        <div class="game-container" id="game-container">
+            <div class="game-board" id="game-board">
+                <div class="board" data-board>
+                <div class="end-game-overlay" id="gameEndOverlay"></div>
+                    <!-- This will contain 9 smaller boards -->
+                </div>
+            </div>
+            <div class="instructions">
+                <h2>Instructions:</h2>
+                <p>Play the game just like classic Tic Tac Toe, but each move determines which mini-board the next player should play in. Win mini-boards to claim them on the main board. Win the main board by claiming three mini-boards in a row, column, or diagonal.</p>
+            </div>
         </div>
+
     </div>
+    <script src="menu.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
