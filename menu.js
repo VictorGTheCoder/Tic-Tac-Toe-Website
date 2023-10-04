@@ -37,10 +37,11 @@ submitPseudoButton.addEventListener('click', function() {
 
 
 loginButton.addEventListener('click', function() {
+    window.location.href = "auth/login.html";
     // Implement your login logic here
     // For now, after logging in:
-    menu.style.display = 'none';
-    document.getElementById('game-container').style.display = 'block';  // Display the game container
+    // menu.style.display = 'none';
+    // document.getElementById('game-container').style.display = 'block';  // Display the game container
 });
 
 

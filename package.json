@@ -1,0 +1,26 @@
+{
+  "name": "tic-tac-toe-website",
+  "version": "1.0.0",
+  "description": "",
+  "main": "menu.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IAmVictorG/Tic-Tac-Toe-Website.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/IAmVictorG/Tic-Tac-Toe-Website/issues"
+  },
+  "homepage": "https://github.com/IAmVictorG/Tic-Tac-Toe-Website#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.20.2",
+    "express": "^4.18.2",
+    "sqlite3": "^5.1.6"
+  }
+}
